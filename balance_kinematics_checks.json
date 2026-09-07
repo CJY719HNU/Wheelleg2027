@@ -1,0 +1,27 @@
+{
+  "kinematics": [
+    {
+      "length": 0.27,
+      "jacobian_identity_error": 5.50371408447603e-08,
+      "virtual_work_error": 0.0,
+      "site_gap": 2.0007115447221508e-11
+    },
+    {
+      "length": 0.3,
+      "jacobian_identity_error": 3.413354310310979e-08,
+      "virtual_work_error": 0.0,
+      "site_gap": 9.635537621985483e-12
+    },
+    {
+      "length": 0.35,
+      "jacobian_identity_error": 4.430441191694001e-08,
+      "virtual_work_error": 0.0,
+      "site_gap": 1.0008999708252449e-11
+    }
+  ],
+  "reference_phi1_phi4_deg": [
+    143.32016102886035,
+    33.17826834110426
+  ],
+  "mass": 22.2186
+}

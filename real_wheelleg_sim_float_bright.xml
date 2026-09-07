@@ -1,0 +1,136 @@
+<mujoco model="real_wheelleg_float_bright">
+    <compiler angle="radian" meshdir="stl" />
+    <option timestep="0.002" gravity="0 0 -9.81" iterations="50" tolerance="1e-10" solver="Newton" jacobian="dense" cone="elliptic" />
+    <default>
+        <joint damping="0.02" armature="0.001" />
+        <geom contype="0" conaffinity="0" />
+    </default>
+    <asset>
+        <mesh name="body_mesh" file="body.stl" />
+        <mesh name="L1_mesh" file="L1.stl" />
+        <mesh name="L2_mesh" file="L2.stl" />
+        <mesh name="L3_mesh" file="L3.stl" />
+        <mesh name="L4_mesh" file="L4.stl" />
+        <mesh name="L5_mesh" file="L5.stl" />
+        <mesh name="L6_mesh" file="L6.stl" />
+        <mesh name="LW_mesh" file="LW.stl" />
+        <mesh name="R1_mesh" file="R1.stl" />
+        <mesh name="R2_mesh" file="R2.stl" />
+        <mesh name="R3_mesh" file="R3.stl" />
+        <mesh name="R4_mesh" file="R4.stl" />
+        <mesh name="R5_mesh" file="R5.stl" />
+        <mesh name="R6_mesh" file="R6.stl" />
+        <mesh name="RW_mesh" file="RW.stl" />
+        <texture type="2d" name="groundplane" builtin="checker" rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3" markrgb="0.8 0.8 0.8" width="300" height="300" />
+        <material name="mat_ground" texture="groundplane" texuniform="true" texrepeat="5 5" />
+    </asset>
+    <worldbody>
+        <geom name="ground" type="plane" material="mat_ground" size="2 2 0.05" contype="1" conaffinity="1" condim="3" friction="2.0 0.5 0.5" pos="0 0 -0.45" />
+        <camera name="track" pos="0.0 0.5 -1.2" xyaxes="-1.0 0.0 0.0 0.0 1.0 0.4" />
+        <body name="base" pos="0 0 0.12">
+            <geom name="body_visual" type="mesh" mesh="body_mesh" contype="0" conaffinity="0" rgba="0.55 0.55 0.56 1" pos="-0.000000 -0.000000 -0.000000" />
+            <geom name="base_ref" type="box" size="0.03 0.03 0.03" rgba="0.2 0.8 0.2 0.4" />
+            <body name="L_L1" pos="-0.169743 -0.039779 -0.037866">
+                <joint name="L_J_base_L1" type="hinge" axis="-1 0 0" damping="0.5" armature="0.001" />
+                <geom name="L_L1_visual" type="mesh" mesh="L1_mesh" pos="+0.169743 +0.039779 +0.037866" contype="0" conaffinity="0" rgba="0.1 0.35 0.95 1" />
+                <body name="L_L2" pos="-0.007600 +0.095167 -0.062224">
+                    <joint name="L_J_L1_L2" type="hinge" axis="-1 0 0" damping="0.5" armature="0.001" />
+                    <geom name="L_L2_visual" type="mesh" mesh="L2_mesh" pos="+0.177343 -0.055388 +0.100090" contype="0" conaffinity="0" rgba="0.1 0.35 0.95 1" />
+                    <site name="L_L2_pin" pos="+0.005600 -0.089941 -0.100676" size="0.006" rgba="1 0.4 0 1" />
+                    <inertial mass="0.0392" pos="+0.009043 -0.040715 -0.054851" diaginertia="+0.000002 +0.000092 +0.000094" quat="-0.259851 -0.657815 +0.244056 +0.663471" />
+                </body>
+                <inertial mass="0.0740" pos="-0.005911 +0.038288 -0.025027" diaginertia="+0.000025 +0.000154 +0.000178" quat="+0.631525 +0.341582 -0.612221 -0.331184" />
+            </body>
+            <body name="L_L5" pos="-0.166668 -0.039516 -0.038019">
+                <joint name="L_J_base_L5" type="hinge" axis="-1 0 0" damping="0.5" armature="0.001" />
+                <geom name="L_L5_visual" type="mesh" mesh="L5_mesh" pos="+0.166668 +0.039516 +0.038019" contype="0" conaffinity="0" rgba="0.1 0.35 0.95 1" />
+                <body name="L_L3" pos="-0.010175 -0.090945 -0.067739">
+                    <joint name="L_J_L3_L5" type="hinge" axis="-1 0 0" damping="0.5" armature="0.001" />
+                    <geom name="L_L3_visual" type="mesh" mesh="L3_mesh" pos="+0.176843 +0.130461 +0.105758" contype="0" conaffinity="0" rgba="0.1 0.35 0.95 1" />
+                    <body name="L_L4" pos="+0.000000 -0.033978 +0.057745">
+                        <joint name="L_J_L3_L4" type="hinge" axis="-1 0 0" damping="0.5" armature="0.001" />
+                        <geom name="L_L4_visual" type="mesh" mesh="L4_mesh" pos="+0.176843 +0.164439 +0.048013" contype="0" conaffinity="0" rgba="0.1 0.35 0.95 1" />
+                        <site name="L_L4_pin" pos="+0.005100 -0.077473 -0.057703" size="0.006" rgba="1 0.4 0 1" />
+                        <inertial mass="0.0273" pos="+0.008574 -0.038603 -0.028750" diaginertia="+0.000001 +0.000034 +0.000035" quat="+0.632695 -0.315727 -0.631191 +0.318765" />
+                    </body>
+                    <site name="L_L3_pin" pos="+0.005100 +0.095908 -0.095008" size="0.006" rgba="1 0.4 0 1" />
+                    <inertial mass="0.0661" pos="+0.000086 +0.026765 -0.022484" diaginertia="+0.000005 +0.000277 +0.000282" quat="+0.665288 +0.239819 -0.664670 -0.241023" />
+                </body>
+                <body name="L_L6" pos="-0.003175 -0.168417 -0.125442">
+                    <joint name="L_J_L5_L6" type="hinge" axis="-1 0 0" damping="0.5" armature="0.001" />
+                    <geom name="L_L6_visual" type="mesh" mesh="L6_mesh" pos="+0.169843 +0.207933 +0.163461" contype="0" conaffinity="0" rgba="0.1 0.35 0.95 1" />
+                    <body name="L_WHEEL" pos="-0.018000 +0.177608 -0.175941">
+                        <joint name="L_J_W" type="hinge" axis="-1 0 0" damping="0.1" armature="0.001" />
+                        <geom name="L_WHEEL_visual" type="mesh" mesh="LW_mesh" pos="+0.187843 +0.030325 +0.339402" contype="0" conaffinity="0" rgba="0.25 0.25 0.27 1" />
+                        <inertial mass="0.6511" pos="-0.015801 -0.000002 +0.000140" diaginertia="+0.000743 +0.000745 +0.001328" quat="+0.505417 -0.494531 -0.504490 +0.495461" />
+                        <geom name="L_wheel_col" type="cylinder" size="0.068 0.03" pos="0 0 0" euler="0 1.5707963 0" contype="1" conaffinity="1" condim="3" friction="2.0 0.5 0.5" rgba="0 0 0 0" />
+                    </body>
+                    <site name="L_L6_pin" pos="-0.001900 -0.033979 +0.057745" size="0.006" rgba="1 0.4 0 1" />
+                    <inertial mass="0.3980" pos="-0.010174 +0.066132 -0.068639" diaginertia="+0.000126 +0.004396 +0.004506" quat="+0.655863 +0.265673 +0.655296 +0.264289" />
+                </body>
+                <inertial mass="0.4730" pos="+0.003929 -0.078408 -0.059456" diaginertia="+0.000238 +0.002835 +0.003048" quat="+0.322595 +0.628457 -0.330264 -0.626019" />
+            </body>
+            <body name="R_L1" pos="+0.169743 -0.039779 -0.037866">
+                <joint name="R_J_base_L1" type="hinge" axis="-1 0 0" damping="0.5" armature="0.001" />
+                <geom name="R_L1_visual" type="mesh" mesh="R1_mesh" pos="-0.169743 +0.039779 +0.037866" contype="0" conaffinity="0" rgba="0.95 0.25 0.1 1" />
+                <body name="R_L2" pos="+0.007600 +0.095167 -0.062224">
+                    <joint name="R_J_L1_L2" type="hinge" axis="-1 0 0" damping="0.5" armature="0.001" />
+                    <geom name="R_L2_visual" type="mesh" mesh="R2_mesh" pos="-0.177343 -0.055388 +0.100090" contype="0" conaffinity="0" rgba="0.95 0.25 0.1 1" />
+                    <site name="R_L2_pin" pos="-0.349086 -0.089941 -0.100676" size="0.006" rgba="1 0.4 0 1" />
+                    <inertial mass="0.0392" pos="-0.009044 -0.040715 -0.054851" diaginertia="+0.000002 +0.000092 +0.000094" quat="+0.259923 +0.657784 +0.243974 +0.663504" />
+                </body>
+                <inertial mass="0.0740" pos="+0.005911 +0.038288 -0.025027" diaginertia="+0.000025 +0.000154 +0.000178" quat="+0.612231 +0.331163 -0.631515 -0.341603" />
+            </body>
+            <body name="R_L5" pos="+0.166668 -0.039516 -0.038019">
+                <joint name="R_J_base_L5" type="hinge" axis="-1 0 0" damping="0.5" armature="0.001" />
+                <geom name="R_L5_visual" type="mesh" mesh="R5_mesh" pos="-0.166668 +0.039516 +0.038019" contype="0" conaffinity="0" rgba="0.95 0.25 0.1 1" />
+                <body name="R_L3" pos="+0.010175 -0.090945 -0.067739">
+                    <joint name="R_J_L3_L5" type="hinge" axis="-1 0 0" damping="0.5" armature="0.001" />
+                    <geom name="R_L3_visual" type="mesh" mesh="R3_mesh" pos="-0.176843 +0.130461 +0.105758" contype="0" conaffinity="0" rgba="0.95 0.25 0.1 1" />
+                    <body name="R_L4" pos="+0.000000 -0.033978 +0.057745">
+                        <joint name="R_J_L3_L4" type="hinge" axis="-1 0 0" damping="0.5" armature="0.001" />
+                        <geom name="R_L4_visual" type="mesh" mesh="R4_mesh" pos="-0.176843 +0.164439 +0.048013" contype="0" conaffinity="0" rgba="0.95 0.25 0.1 1" />
+                        <site name="R_L4_pin" pos="-0.348586 -0.077473 -0.057703" size="0.006" rgba="1 0.4 0 1" />
+                        <inertial mass="0.0274" pos="-0.008585 -0.038597 -0.028750" diaginertia="+0.000001 +0.000034 +0.000035" quat="-0.318579 -0.631489 +0.316029 +0.632341" />
+                    </body>
+                    <site name="R_L3_pin" pos="-0.348586 +0.095908 -0.095008" size="0.006" rgba="1 0.4 0 1" />
+                    <inertial mass="0.0660" pos="-0.000085 +0.026765 -0.022487" diaginertia="+0.000005 +0.000277 +0.000282" quat="+0.665235 +0.239953 +0.664719 +0.240902" />
+                </body>
+                <body name="R_L6" pos="+0.003175 -0.168417 -0.125442">
+                    <joint name="R_J_L5_L6" type="hinge" axis="-1 0 0" damping="0.5" armature="0.001" />
+                    <geom name="R_L6_visual" type="mesh" mesh="R6_mesh" pos="-0.169843 +0.207933 +0.163461" contype="0" conaffinity="0" rgba="0.95 0.25 0.1 1" />
+                    <body name="R_WHEEL" pos="+0.018000 +0.177608 -0.175941">
+                        <joint name="R_J_W" type="hinge" axis="-1 0 0" damping="0.1" armature="0.001" />
+                        <geom name="R_WHEEL_visual" type="mesh" mesh="RW_mesh" pos="-0.187843 +0.030325 +0.339402" contype="0" conaffinity="0" rgba="0.25 0.25 0.27 1" />
+                        <inertial mass="0.6511" pos="+0.015801 -0.000001 +0.000139" diaginertia="+0.000743 +0.000745 +0.001328" quat="+0.485104 +0.514556 -0.486191 -0.513347" />
+                        <geom name="R_wheel_col" type="cylinder" size="0.068 0.03" pos="0 0 0" euler="0 1.5707963 0" contype="1" conaffinity="1" condim="3" friction="2.0 0.5 0.5" rgba="0 0 0 0" />
+                    </body>
+                    <site name="R_L6_pin" pos="-0.341586 -0.033979 +0.057745" size="0.006" rgba="1 0.4 0 1" />
+                    <inertial mass="0.3980" pos="+0.010175 +0.066134 -0.068641" diaginertia="+0.000126 +0.004396 +0.004506" quat="+0.655977 +0.265399 -0.655180 -0.264570" />
+                </body>
+                <inertial mass="0.4730" pos="-0.003929 -0.078408 -0.059457" diaginertia="+0.000238 +0.002835 +0.003048" quat="-0.330269 -0.626017 +0.322589 +0.628460" />
+            </body>
+            <inertial mass="18.7612" pos="-0.006101 -0.057062 -0.028736" diaginertia="+0.289022 +0.485824 +0.497671" quat="+0.655371 +0.236463 +0.460764 +0.549791" />
+            <freejoint />
+            <geom name="chassis_col" type="box" size="0.245 0.33 0.206" pos="-0.0045 0.0145 0" contype="1" conaffinity="1" condim="3" friction="2.0 0.5 0.5" rgba="0 0 0 0" />
+        </body>
+        <light name="sun_top" pos="0 0 5" dir="0 0 -1" diffuse="0.95 0.95 0.90" specular="0.3 0.3 0.3" directional="true" castshadow="false" />
+        <light name="fill_x+" pos="0.5 -0.4 1" dir="-0.5 0.4 -0.6" diffuse="0.55 0.55 0.6" specular="0.3 0.3 0.3" directional="true" castshadow="false" />
+        <light name="fill_x-" pos="-0.5 -0.4 1" dir="0.5 0.4 -0.6" diffuse="0.55 0.55 0.6" specular="0.3 0.3 0.3" directional="true" castshadow="false" />
+        <light name="fill_back" pos="0 0.5 1.5" dir="0 -0.5 -0.7" diffuse="0.45 0.45 0.5" specular="0.3 0.3 0.3" directional="true" castshadow="false" />
+    </worldbody>
+    <equality>
+        <connect name="L_close_L2_L3" site1="L_L2_pin" site2="L_L3_pin" solref="0.001 1" solimp="0.99 0.99 0.01 0.5 2" />
+        <connect name="L_close_L4_L6" site1="L_L4_pin" site2="L_L6_pin" solref="0.001 1" solimp="0.99 0.99 0.01 0.5 2" />
+        <connect name="R_close_L2_L3" site1="R_L2_pin" site2="R_L3_pin" solref="0.001 1" solimp="0.99 0.99 0.01 0.5 2" />
+        <connect name="R_close_L4_L6" site1="R_L4_pin" site2="R_L6_pin" solref="0.001 1" solimp="0.99 0.99 0.01 0.5 2" />
+    </equality>
+    <actuator>
+        <motor name="L_wheel_motor" joint="L_J_W" gear="1" ctrllimited="true" ctrlrange="-4.92 4.92" />
+        <motor name="R_wheel_motor" joint="R_J_W" gear="1" ctrllimited="true" ctrlrange="-4.92 4.92" />
+        <position name="L_back_drive_pos" joint="L_J_base_L1" kp="80" ctrllimited="true" ctrlrange="-1.2 1.2" />
+        <position name="L_front_drive_pos" joint="L_J_base_L5" kp="80" ctrllimited="true" ctrlrange="-1.2 1.2" />
+        <position name="R_back_drive_pos" joint="R_J_base_L1" kp="80" ctrllimited="true" ctrlrange="-1.2 1.2" />
+        <position name="R_front_drive_pos" joint="R_J_base_L5" kp="80" ctrllimited="true" ctrlrange="-1.2 1.2" />
+    </actuator>
+</mujoco>
