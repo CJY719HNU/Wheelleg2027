@@ -62,7 +62,7 @@ class Robot:
         Jpos=(rot.T@(jw-jh))[:,self.va[s][:6]]
         Jcart=Jpos[1:3]@S
         Jtask=np.array([[local[1]/h,local[2]/h],[local[2]/h**2,-local[1]/h**2]])@Jcart
-        result.update(J=Jtask,condition=float(np.linalg.cond(C[:,passive])),rate=Jtask@d.qvel[self.va[s][active]])
+        result.update(J=Jtask,S=S,condition=float(np.linalg.cond(C[:,passive])),rate=Jtask@d.qvel[self.va[s][active]])
         return result
     def forward_leg(self,q_L1,q_L5,side='L'):
         """Encoder-only forward kinematics on the reference assembly branch.
@@ -216,7 +216,7 @@ def run(args):
     r=Robot();cache=ROOT/'balance_gains.json'
     signature=hashlib.sha256((ROOT/'real_wheelleg_balance.xml').read_bytes()).hexdigest()
     if args.design or not cache.exists():
-        rows=design(r,np.linspace(.27,.35,9));cache.write_text(json.dumps(dict(Q=costs()[0].tolist(),R=costs()[1].tolist(),model_sha256=signature,dt=DT,rows=rows),indent=2))
+        rows=design(r,np.linspace(.20,.38,19));cache.write_text(json.dumps(dict(Q=costs()[0].tolist(),R=costs()[1].tolist(),model_sha256=signature,dt=DT,rows=rows),indent=2))
     else:
         saved=json.loads(cache.read_text());Q,R=costs()
         if saved.get('model_sha256')!=signature or saved.get('dt')!=DT:raise ValueError('Model changed; run --design')

@@ -1,0 +1,13 @@
+{
+  "gamepad_deadzone_deadman_axes_edges": true,
+  "stale_command_ramps_to_zero": true,
+  "disconnect_stops_command": true,
+  "emergency_overrides_recovery": true,
+  "overspeed_zero_torque": true,
+  "torque_saturation_grace_and_timeout": true,
+  "invalid_command_disables": true,
+  "invalid_sensor_disables": true,
+  "invalid_physics_not_stepped": true,
+  "airborne_encoder_ignored": true,
+  "large_slip_innovation_rejected": true
+}

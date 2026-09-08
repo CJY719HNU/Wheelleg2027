@@ -1,0 +1,6 @@
+{
+  "paper_theta_rate_only": true,
+  "wheel_row_zero": true,
+  "ground_gains_unchanged": true,
+  "configurable_reference_slew": true
+}

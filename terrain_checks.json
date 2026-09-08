@@ -1,0 +1,61 @@
+{
+  "slope": {
+    "objects": [
+      "terrain_0_up",
+      "terrain_1_top",
+      "terrain_2_down"
+    ],
+    "probes": [
+      {
+        "x": 0,
+        "y": 1.6,
+        "z": 0.04999999799241328,
+        "geom": "terrain_0_up"
+      },
+      {
+        "x": 0,
+        "y": 2.5,
+        "z": 0.10000000000000009,
+        "geom": "terrain_1_top"
+      },
+      {
+        "x": 0,
+        "y": 3.4,
+        "z": 0.05000000196605625,
+        "geom": "terrain_2_down"
+      }
+    ]
+  },
+  "launch": {
+    "objects": [
+      "terrain_0_launch",
+      "terrain_1_landing_pad"
+    ],
+    "probes": [
+      {
+        "x": 0,
+        "y": 1.2,
+        "z": 0.09999999957280492,
+        "geom": "terrain_0_launch"
+      }
+    ]
+  },
+  "course": {
+    "objects": [
+      "terrain_0_slope_up",
+      "terrain_1_slope_top",
+      "terrain_2_slope_down",
+      "terrain_3_launch",
+      "terrain_4_low_step",
+      "terrain_5_high_step"
+    ],
+    "probes": [
+      {
+        "x": 1.5,
+        "y": 1.2,
+        "z": 0.0999999995728047,
+        "geom": "terrain_3_launch"
+      }
+    ]
+  }
+}
